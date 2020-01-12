@@ -1,0 +1,16 @@
+<h4>{{title}}</h4>
+<br>
+<label for="">Buscar Proveedor por producto...</label>
+<div class="row">
+    <div class="col-6">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" [(ngModel)]="producto.codProducto" [ngModelOptions]="{standalone: true}" placeholder="PRD1." aria-label="Recipient's username" aria-describedby="button-addon2">
+            <div class="input-group-append">
+                <button class="btn btn-outline-dark" (click)="consultarPorCodigo()" type="button" id="button-addon2">Consultar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h3>Nombre: </h3>
+<h2 *ngFor="let proveedor of provee">{{proveedor.nomProveedor}}</h2>

@@ -1,0 +1,29 @@
+<h4>{{title}}</h4>
+<br>
+<label for="">Buscar productos por proveedor...</label>
+<div class="row">
+    <div class="col-6">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" [(ngModel)]="producto.nitProveedor" [ngModelOptions]="{standalone: true}" placeholder="123456..." aria-label="Recipient's username" aria-describedby="button-addon2">
+            <div class="input-group-append">
+                <button class="btn btn-outline-dark" (click)="consultarPorNit()" type="button" id="button-addon2">Consultar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-4">
+        <table class="table table-sm">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">NOMBRE</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let producto of productos">
+                    <td>{{producto.nomProducto}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

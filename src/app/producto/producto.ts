@@ -1,5 +1,5 @@
 export class Producto {
-    codProducto: number;
+    codProducto: string;
     nitProveedor: string;
     precioProducto: number;
     nomProducto: string;

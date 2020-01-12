@@ -19,4 +19,13 @@ export class ProductoService {
   getProductosPorNit(nit: string): Observable<Producto[]>{
     return this.http.get<Producto[]>(`${this.urlEndPoint}/getproductospornit/${nit}`)
   }
+
+  getProductosMayorQue(valor: number): Observable<Producto[]>{
+    return this.http.get<Producto[]>(`${this.urlEndPoint}/getproductosmayorque/${valor}`)
+  }
+
+  getProductosPrecioEntre(menor: number, mayor: number): Observable<Producto[]>{
+    return this.http.get<Producto[]>(`${this.urlEndPoint}/getproductosentre/${menor}/${mayor}`)
+  }
+
 }

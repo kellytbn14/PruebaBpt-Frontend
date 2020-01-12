@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2'
-import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 import { Proveedor } from './proveedor';
 import { ProveedorService } from './proveedor.service';
 import { Producto } from '../producto/producto';
 import { ProductoService } from '../producto/producto.service';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-proveedor',
@@ -16,7 +14,7 @@ import { Observable } from 'rxjs';
 export class ProveedorComponent implements OnInit {
 
   proveedores: Proveedor[];
-  productos: Producto[];
+  productos: Producto[];  
 
   constructor(private proveedorService: ProveedorService, private productoService: ProductoService) { }
 
@@ -30,15 +28,15 @@ export class ProveedorComponent implements OnInit {
   verProductos(nit: string): void {
     this.productoService.getProductosPorNit(nit).subscribe((producto) => {
       this.productos = producto
-      var htmlPre=''
+      var htmlPre = ''
 
       this.productos.forEach(function (producto) {
-              
-        htmlPre+='<tr>'+
-         '<th scope="row">' + producto.codProducto + '</th>'+
-         '<td>' + producto.precioProducto + '</td>'+
-         '<td>' + producto.nomProducto + '</td>'+
-        '</tr>'
+
+        htmlPre += '<tr>' +
+          '<th scope="row">' + producto.codProducto + '</th>' +
+          '<td>' + producto.precioProducto + '</td>' +
+          '<td>' + producto.nomProducto + '</td>' +
+          '</tr>'
       });
 
       Swal.fire({
@@ -53,9 +51,9 @@ export class ProveedorComponent implements OnInit {
           ' <th scope="col">NOMBRE</th>' +
           ' </tr>' +
           '  </thead>' +
-          '  <tbody>' +   
+          '  <tbody>' +
 
-            htmlPre+
+          htmlPre +
 
           ' </tbody>' +
           '  </table>',
@@ -65,6 +63,5 @@ export class ProveedorComponent implements OnInit {
       })
     })
   }
-
 
 }

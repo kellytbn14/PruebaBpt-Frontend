@@ -19,4 +19,7 @@ export class ProveedorService {
        return this.http.get<Proveedor[]>(this.urlEndPoint)
   }
 
+  getProveedorPorProducto(codigo: string): Observable<Proveedor>{
+    return this.http.get<Proveedor>(`${this.urlEndPoint}/getnameproveedorporcod/${codigo}`)
+  }
 }

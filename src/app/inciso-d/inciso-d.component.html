@@ -1,0 +1,36 @@
+<h4>{{title}}</h4>
+<br>
+
+<label for="">Buscar productos con precios entre...</label>
+<div class="row">
+    <div class="col-6">
+        <div class="input-group">
+            <input type="text" placeholder="valor menor" [(ngModel)]="menor" [ngModelOptions]="{standalone: true}" class="form-control">
+            <input type="text" placeholder="valor mayor" [(ngModel)]="mayor" [ngModelOptions]="{standalone: true}" class="form-control">
+            <div class="input-group-prepend">
+                <button class="btn btn-outline-dark" (click)="consultarPorPreciosEntre()" type="button" id="button-addon2">Consultar</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+<br>
+
+<div class="row">
+    <div class="col-4">
+        <table class="table table-sm">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">NOMBRE</th>
+                    <th scope="col">PRECIO</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let producto of productos">
+                    <td>{{producto.nomProducto}}</td>
+                    <td>{{producto.precioProducto}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

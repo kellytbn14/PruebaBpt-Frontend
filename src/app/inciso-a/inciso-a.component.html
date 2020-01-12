@@ -1,0 +1,31 @@
+<h4>{{title}}</h4>
+<br>
+<label for="">Buscar productos con precios mayores que...</label>
+<div class="row">
+    <div class="col-6">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" [(ngModel)]="producto.precioProducto" [ngModelOptions]="{standalone: true}" placeholder="180000..." aria-label="Recipient's username" aria-describedby="button-addon2">
+            <div class="input-group-append">
+                <button class="btn btn-outline-dark" (click)="consultarMayorQue()" type="button" id="button-addon2">Consultar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-4">
+        <table class="table table-sm">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">PRECIO</th>
+                    <th scope="col">NOMBRE</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let producto of productos">
+                    <th scope="row">{{producto.precioProducto}}</th>
+                    <td>{{producto.nomProducto}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
